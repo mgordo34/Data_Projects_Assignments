@@ -1,0 +1,35 @@
+---
+title: "Week_2_Assignment: Places I'd Like to Visit"
+author: "Molly Gordon"
+date: "6/17/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(leaflet)
+```
+
+```{r}
+my_map <- leaflet() %>%
+    addTiles()
+```
+```{r}
+df <- data.frame(lat=c(29.61031,35.6895), lng=c(52.53113,139.69171))
+
+FlagIcons <- makeIcon(
+    iconUrl=c("https://upload.wikimedia.org/wikipedia/commons/c/ca/Flag_of_Iran.svg", "https://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg"),
+    iconWidth=31*215/230, iconHeight=31,
+    iconAnchorX=31*215/230/2, iconAnchorY=16
+)
+
+df %>%
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(popup=c("Shiraz, Iran", "Tokyo, Japan"), icon=FlagIcons)
+
+
+```
