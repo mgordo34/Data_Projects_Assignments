@@ -1,0 +1,58 @@
+---
+title: "US Arrest analysis (1973)"
+author: "Molly Gordon"
+date: "6/18/2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(plotly)
+```
+
+## USArrest R Dataset
+
+This data set contains statistics, in arrests per 100,000 residents for assault, murder, and rape in each of the 50 US states in 1973. Also given is the percent of the population living in urban areas.
+
+```{r cars, echo = TRUE}
+head(USArrests)
+```
+
+## We will explore the effect of urban population size (% living in Urban areas) on:
+
+- Murder
+- Assault
+- Rape
+
+In this analysis, we will not stratify by state, but look at the population size instead.
+
+## Murder arrests per 100,000 as a function of urban population
+
+```{r}
+knitr::opts_chunk$set(echo = FALSE)
+data("USArrests") #load available dataset from R
+
+plot_ly(USArrests, x=~UrbanPop, y=~Murder, mode="markers", type="scatter")
+```
+
+## Assault arrests per 100,000 as a function of urban population
+
+```{r}
+knitr::opts_chunk$set(echo = FALSE)
+data("USArrests") #load available dataset from R
+
+plot_ly(USArrests, x=~UrbanPop, y=~Assault, mode="markers", type="scatter")
+```
+
+## Rape arrests per 100,000 as a function of urban population
+
+```{r}
+knitr::opts_chunk$set(echo = FALSE)
+data("USArrests") #load available dataset from R
+
+plot_ly(USArrests, x=~UrbanPop, y=~Rape, mode="markers",type="scatter")
+```
+
+## Conclusions
+
+From this exploratory analysis, it appears that percent of urban population has a positive correlation with arrests related to rape in 1973. The other two arrests, murder and assault, do not appear to have a correlation to urban population size. 
